@@ -34,7 +34,7 @@ int main (int argc, char* argv[]) {
 	// 4 prompt the user for a name
 	
 		cout << "Hello. Welcome to a new semester.\n"
-				"Please enter you name.\n";
+				"Please enter you name: ";
 			
 	// 5 read in the name from standard input and store
 	//   in the variable userName		
