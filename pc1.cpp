@@ -39,7 +39,7 @@ int main (int argc, char* argv[]) {
 	// 5 read in the name from standard input and store
 	//   in the variable userName		
 			
-		cin >> userName;
+		getline(cin, userName);
 		
 	// 6 ask the user the yes/no question "Have you programmed 
 	//   in C++ before?"		
