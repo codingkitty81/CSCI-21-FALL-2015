@@ -6,7 +6,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 8/24/2015
- * Last modified date: 8/25/2015
+ * Last modified date: 8/25/2015 
  */
 #include <cassert>
 #include <cmath>
