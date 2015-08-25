@@ -44,7 +44,7 @@ int main (int argc, char* argv[]) {
 	// 6 ask the user the yes/no question "Have you programmed 
 	//   in C++ before?"		
 	
-		cout << "Have you programmed in C++ before?\n";
+		cout << "Have you programmed in C++ before? ";
 	
 	// 7 read in the answer from standard input and store
 	//   in the variable programmedBefore
