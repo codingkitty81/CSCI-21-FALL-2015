@@ -1,5 +1,12 @@
 /*
  * Programming Challenge 2
+ * This program tests if a number is a factor of another number, will calculate
+ * change based on initial values given, and calculates horizontal distance travelled
+ * by an object using velocity and launch angle.
+ *
+ * Katherine Jouzapaitis
+ * Date created: 8/24/2015
+ * Last modified date: 8/25/2015
  */
 #include <cassert>
 #include <cmath>

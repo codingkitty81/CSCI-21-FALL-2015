@@ -22,10 +22,12 @@ void unittest (string s, char c);
 int main (int argc, char* argv[]) {
 
 	// 1 declare a string variable named userName
+	
+		string userName;
+		
 	// 2 declare a char variable named programmedBefore
 	//   and initialize programmedBefore to the value 'z'
 	
-		string userName;
 		char programmedBefore = 'z';
 	
 	// 3 display a welcome message to standard output
