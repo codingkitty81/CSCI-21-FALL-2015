@@ -10,6 +10,8 @@
  * Katherine Jouzapaitis
  * Date created: 8/25/2015
  * Last modified date: 8/27/2015
+ *
+ * References: http://www.cplusplus.com/forum/beginner/25649/
  */
 #include <cassert>
 #include <cmath>
