@@ -1,6 +1,6 @@
 /*
  * Programming Challenge 3
- * This program tells the sorry of Goldilocks based on the item and which
+ * This program tells the story of Goldilocks based on the item and which
  * number of item chosen. Has a two player Rock, Scizzors, Paper game.
  * Will take a given character and return it's equivalent numerical value.
  * Converts strings all to lowercase letters, and another conversion to
