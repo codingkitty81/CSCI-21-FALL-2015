@@ -22,3 +22,6 @@ challenge-4: pc4.cpp
 challenge-5: pc5.cpp
 	g++ pc5.cpp -o challenge-5
 	
+challenge-6: pc6.cpp
+	g++ pc6.cpp -o challenge-6
+	
