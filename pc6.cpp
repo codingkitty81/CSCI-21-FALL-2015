@@ -1,12 +1,15 @@
 /*
  * Programming Challenge 6
+ * This program deals with arrays in a variety of ways. First it displays an
+ * array with desired separators, it will check to see if there is a particular
+ * value within the array. Also, it will display a value at a given index, sum
+ * the either the entire or portions of the array, and it will swap values of
+ * given indexes.
  *
  * Katherine Jouzapaitis
  * Date created: 9/1/2015
- * Date last modified:
+ * Date last modified: 9/2/2015
  *
- * Resources:
- * 
  */
 #include <cassert>
 #include <iostream>
@@ -81,6 +84,7 @@ int main (int argc, char* argv[]) {
 
 // CODE HERE -- FUNCTION DEFINITIONS
 string prepareForDisplay (int values[], int size, char separator) {
+	
 	stringstream ss;
 	
 	for (int i = 0; i < size; i++) {
@@ -92,18 +96,46 @@ string prepareForDisplay (int values[], int size, char separator) {
 
 bool hasValue (int values[], int size, int value) {
 	
+	bool check = false;
+	
+	for (int i = 0; i < size; i++) {
+		if (values[i] == value) {
+			check = true;
+		}
+	}
+	
+	return(check);
 }
 
 int valueAt (int values[], int size, int index, bool& error) {
 	
+	error = true;
+	
+	if (index < size) {
+		error = false;
+		return(values[index]);
+	}
+	else {
+		return(0);
+	}
 }
 
 int sum (int values[], int size) {
 	
+	int sumVal = 0;
+	
+	for (int i = 0; i < size; i++) {
+		sumVal = sumVal + values[i];
+	}
+	
+	return(sumVal);
 }
 
 void swapValues (int values[], int index1, int index2) {
 	
+	int tempVal = values[index1];
+	values[index1] = values[index2];
+	values[index2] = tempVal;
 }
 
 /*
