@@ -10,7 +10,7 @@
  * Date last modified: 9/3/2015
  *
  * Resources:
- *
+ * http://www.cplusplus.com/doc/tutorial/files/
  */
 #include <cassert>
 #include <fstream>
