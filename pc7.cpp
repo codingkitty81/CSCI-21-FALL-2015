@@ -1,10 +1,13 @@
 /*
  * Programming Challenge 7
- *
+ * This program reads in a file and compares the input to a given set of values.
+ * If the input matches then a function will be called that corresponds to the
+ * matched value, which activates a counter. There is also a counter for values
+ * outside of the values checked.
  *
  * Katherine Jouzapaitis
  * Date created: 9/2/2015
- * Date last modified:
+ * Date last modified: 9/3/2015
  *
  * Resources:
  *
