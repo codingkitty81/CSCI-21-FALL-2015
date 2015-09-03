@@ -1,12 +1,13 @@
 /*
  * Programming Challenge 8
- *
+ * This program takes input from the console, then compares it given values. If
+ * there is a match then a function is called for that corresponding number and
+ * a counter is activated. There is also a counter for any input that does not
+ * match the desired values.
  *
  * Katherine Jouzapaitis
  * Date created: 9/3/2015
  * Date last modified: 9/3/2015
- * 
- * Resources:
  *
  */
 #include <cassert>
