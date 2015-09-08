@@ -11,7 +11,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/3/2015
- * Date last modified:
+ * Date last modified: 9/8/2015
  *
  * Resources:
  * http://www.cplusplus.com/forum/general/30929/
