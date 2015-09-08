@@ -25,3 +25,12 @@ challenge-5: pc5.cpp
 challenge-6: pc6.cpp
 	g++ pc6.cpp -o challenge-6
 	
+challenge-7: pc7.cpp
+	g++ pc7.cpp -o challenge-7
+	
+challenge-8: pc8.cpp
+	g++ pc8.cpp -o challenge-8
+
+project-1: project1.cpp
+	g++ project1.cpp -o project-1
+	
