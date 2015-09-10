@@ -85,13 +85,13 @@ int main (int argc, char* argv[]) {
 // CODE HERE -- FUNCTION DEFINITIONS
 string prepareForDisplay (int values[], int size, char separator) {
 	
-	stringstream ss;
+	stringstream valueStream;
 	
 	for (int i = 0; i < size; i++) {
-		ss << values[i] << separator;
+		valueStream << values[i] << separator;
 	}
-	
-	return(ss.str().substr(0,ss.str().length() - 1));
+	//substr(first argument is index of where you want to start keeping string, second argument is where what you want kept ends)
+	return(valueStream.str().substr(0,valueStream.str().length() - 1));
 }
 
 bool hasValue (int values[], int size, int value) {
