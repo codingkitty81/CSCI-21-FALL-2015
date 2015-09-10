@@ -7,7 +7,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/3/2015
- * Date last modified: 9/3/2015
+ * Date last modified: 9/10/2015
  *
  */
 #include <cassert>
@@ -60,24 +60,24 @@ int main (int argc, char* argv[]) {
 // CODE HERE -- FUNCTION DEFINITIONS
 void processArguments (int argc, char* argv[]) {
 	
-	stringstream ss;
+	stringstream valueStream;
 	
 	for (int i = 1; i < argc; i++) {
-		ss.str("");
-		ss << argv[i];
-			if (ss.str() == "10") {
+		valueStream.str("");
+		valueStream << argv[i];
+			if (valueStream.str() == "10") {
 				onTen();
 			}
-			else if (ss.str() == "20") {
+			else if (valueStream.str() == "20") {
 				onTwenty();
 			}
-			else if (ss.str() == "30") {
+			else if (valueStream.str() == "30") {
 				onThirty();
 			}
-			else if (ss.str() == "40") {
+			else if (valueStream.str() == "40") {
 				onForty();
 			}
-			else if (ss.str() == "50") {
+			else if (valueStream.str() == "50") {
 				onFifty();
 			}
 			else {
