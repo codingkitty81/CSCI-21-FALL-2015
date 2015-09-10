@@ -11,7 +11,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/3/2015
- * Date last modified: 9/8/2015
+ * Date last modified: 9/10/2015
  *
  * Resources:
  * http://www.cplusplus.com/forum/general/30929/
@@ -139,27 +139,27 @@ int computeAverage (int values [], int arraySize) {
 }
 
 int findMinValue (int values [], int arraySize) {
-	int tempVal = values[0];
+	int tempMin = values[0];
 	
 	for (int i = 1; i < arraySize; i++) {
 		if (values[i] < tempVal) {
-			tempVal = values[i];
+			tempMin = values[i];
 		}
 	}
 	
-	return tempVal;
+	return tempMin;
 }
 
 int findMaxValue (int values [], int arraySize) {
-	int tempVal = values[0];
+	int tempMax = values[0];
 	
 	for (int i = 1; i < arraySize; i++) {
 		if (values[i] > tempVal) {
-			tempVal = values[i];
+			tempMax = values[i];
 		}
 	}
 	
-	return tempVal;
+	return tempMax;
 }
 
 /*
