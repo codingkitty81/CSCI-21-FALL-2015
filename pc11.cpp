@@ -1,10 +1,14 @@
 /*
  * Programming Challenge 11
- *
+ * This program emulates a game show in regards to presenting a prize behind a secret door.
+ * It checks the value of the prize behind the secret door, and if the prize value is more
+ * than 100 the name of the prize is changed to all capital letters and an "!" is added to
+ * the name. If no prize is given the default is "no name!", and if no value is given the 
+ * default value is 0. When no door number is given, it has the default of number 1.
  *
  * Katherine Jouzapaitis
  * Date created: 9/10/2015
- * Date last modified:
+ * Date last modified: 9/16/2015
  *
  * Resources:
  * http://www.cplusplus.com/reference/string/string/operator+=/
