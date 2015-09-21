@@ -34,3 +34,15 @@ challenge-8: pc8.cpp
 project-1: project1.cpp
 	g++ project1.cpp -o project-1
 	
+challenge-9: pc9.cpp
+	g++ pc9.cpp -o challenge-9
+	
+challenge-10: pc10.cpp
+	g++ pc10.cpp -o challenge-10
+	
+challenge-11: pc11.cpp
+	g++ pc11.cpp -o challenge-11
+	
+challenge-12: pc12.cpp
+	g++ pc12.cpp -o challenge-12
+	
