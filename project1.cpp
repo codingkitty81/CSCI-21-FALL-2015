@@ -11,7 +11,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/3/2015
- * Date last modified: 9/10/2015
+ * Date last modified: 9/21/2015
  *
  * Resources:
  * http://www.cplusplus.com/forum/general/30929/
@@ -142,7 +142,7 @@ int findMinValue (int values [], int arraySize) {
 	int tempMin = values[0];
 	
 	for (int i = 1; i < arraySize; i++) {
-		if (values[i] < tempVal) {
+		if (values[i] < tempMin) {
 			tempMin = values[i];
 		}
 	}
@@ -154,7 +154,7 @@ int findMaxValue (int values [], int arraySize) {
 	int tempMax = values[0];
 	
 	for (int i = 1; i < arraySize; i++) {
-		if (values[i] > tempVal) {
+		if (values[i] > tempMax) {
 			tempMax = values[i];
 		}
 	}
