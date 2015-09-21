@@ -1,9 +1,14 @@
 /*
  * Programming Challenge 12
+ * This program allocates the memory for an array dynamically and will clear out
+ * the array when no longer needed to free up the memory. It will run the array
+ * through a summation, minimum value check, and a maximum value check. Before
+ * each task there is a check to see if the array is populated. If the array is
+ * empty (null), it will throw an exception.
  *
  * Katherine Jouzapaitis
  * Date created: 9/16/2015
- * Date last modified:
+ * Date last modified: 9/21/2015
  *
  * Resources:
  * James Switzer - Senior Engineer, Shasta QA
