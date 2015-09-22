@@ -46,3 +46,6 @@ challenge-11: pc11.cpp
 challenge-12: pc12.cpp
 	g++ pc12.cpp -o challenge-12
 	
+challenge_13: pc13.cpp
+	g++ pc13.cpp -o challenge-13
+	
