@@ -1,13 +1,19 @@
 /*
  * Programming Challenge 13
- *
+ * This program dynamically handles a string, and will free up the memory previoudly used and
+ * make the pointer for the string NULL. The total characters within the string will be counted,
+ * separated out by alpha, digit, and other characters. A word can be found within the string, 
+ * and replaced. If the string's pointer is set to NULL for any of these operations an
+ * exception will be thrown.
  *
  * Katherine Jouzapaitis
  * Date created: 9/21/2015
- * Date last modified:
+ * Date last modified: 9/22/2015
  *
  * Resources:
- *
+ * http://www.cplusplus.com/doc/tutorial/pointers/
+ * http://stackoverflow.com/questions/18090739/how-do-i-use-stringfind-to-find-a-word-in-file-using-c
+ * http://www.cplusplus.com/forum/beginner/99785/
  */
 #include <cassert>
 #include <cstdlib>
@@ -21,7 +27,7 @@ using namespace std;
  * @return a pointer to the newly allocated string
  */
 string* makeDynoString (string contents);
-
+	
 /*
  * Free the memory associated with a dynamic string and NULL out its pointer.
  * @param theString a pointer (passed by reference) to a dynamic string
@@ -80,6 +86,78 @@ int main (int argc, char* argv[]) {
 
 // CODE HERE -- FUNCTION DEFINITIONS
 
+string* makeDynoString (string contents) {
+	string* dynString = new string;
+	*dynString = contents;
+	return dynString;
+}
+
+void clearDynoString (string*& theString) {
+	delete theString;
+	theString = 0;
+}
+
+unsigned int countChars (string* theString, unsigned int& alpha, unsigned int& num) {
+	alpha = 0;
+	num = 0;
+	string tempString;
+	int charCount = 0;
+	int otherChar = 0;
+	
+	if (theString == NULL) {
+		throw ArrayException("NULL STRING REFERENCE");
+	} else {
+		tempString = *theString;
+			for (int i = 0; i < tempString.length(); i++) {
+				if (isalpha (tempString[i])) {
+					alpha++;
+				}
+				else if (isdigit (tempString[i])) {
+					num++;
+				} else {
+					otherChar++;
+				}
+			}
+	}
+	
+	charCount = alpha + num + otherChar;
+	
+	return charCount;
+}
+
+bool findWord (string* theString, string theWord) {
+	string tempString;
+	
+	if (theString == NULL) {
+		throw ArrayException("NULL STRING REFERENCE");
+	} else {
+		tempString = *theString;
+		string::size_type pos = tempString.find(theWord);
+			if (pos != string::npos){
+				return true;
+			} else {
+				return false;
+			}
+	}
+}
+
+bool replaceWord (string* theString, string oldWord, string newWord) {
+	string tempString;
+	
+	if (theString == NULL) {
+		throw ArrayException("NULL STRING REFERENCE");
+	} else {
+		tempString = *theString;
+		string::size_type foundWord = tempString.find(oldWord);
+			if (foundWord != string::npos) {
+				tempString.replace(tempString.find(oldWord), oldWord.length(), newWord);
+				*theString = tempString;
+				return true;
+			} else {
+				return false;
+			}
+	}
+}
 /*
  * Unit testing functions. Do not alter.
  */
