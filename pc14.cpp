@@ -146,7 +146,12 @@ string ShoppingList::removeItem (unsigned int index) {
         throw ArrayException("INVALID ARRAY INDEX");
     } else {
         itemRemoved = items[index];
-        items[index] = "";
+        int capacity = maxItems;
+            for (int i = index; i < capacity; i++) {
+                items[i] = items[i + 1];
+                items[capacity - 1] = "";
+                capacity--;
+            }
         itemCount--;
         return itemRemoved;
     }
