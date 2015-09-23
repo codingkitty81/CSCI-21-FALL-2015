@@ -100,19 +100,18 @@ void clearDynoString (string*& theString) {
 unsigned int countChars (string* theString, unsigned int& alpha, unsigned int& num) {
 	alpha = 0;
 	num = 0;
-	string tempString;
 	int charCount = 0;
 	int otherChar = 0;
 	
 	if (theString == NULL) {
 		throw ArrayException("NULL STRING REFERENCE");
 	} else {
-		tempString = *theString;
-			for (int i = 0; i < tempString.length(); i++) {
-				if (isalpha (tempString[i])) {
+		// theString->length() is the same as (*theString).length()
+			for (int i = 0; i < theString->length(); i++) {
+				if (isalpha ((*theString)[i])) {
 					alpha++;
 				}
-				else if (isdigit (tempString[i])) {
+				else if (isdigit ((*theString)[i])) {
 					num++;
 				} else {
 					otherChar++;
@@ -126,13 +125,11 @@ unsigned int countChars (string* theString, unsigned int& alpha, unsigned int& n
 }
 
 bool findWord (string* theString, string theWord) {
-	string tempString;
 	
 	if (theString == NULL) {
 		throw ArrayException("NULL STRING REFERENCE");
 	} else {
-		tempString = *theString;
-		string::size_type pos = tempString.find(theWord);
+		string::size_type pos = theString->find(theWord);
 			if (pos != string::npos){
 				return true;
 			} else {
@@ -142,16 +139,13 @@ bool findWord (string* theString, string theWord) {
 }
 
 bool replaceWord (string* theString, string oldWord, string newWord) {
-	string tempString;
 	
 	if (theString == NULL) {
 		throw ArrayException("NULL STRING REFERENCE");
 	} else {
-		tempString = *theString;
-		string::size_type foundWord = tempString.find(oldWord);
+		string::size_type foundWord = theString->find(oldWord);
 			if (foundWord != string::npos) {
-				tempString.replace(tempString.find(oldWord), oldWord.length(), newWord);
-				*theString = tempString;
+				theString->replace(theString->find(oldWord), oldWord.length(), newWord);
 				return true;
 			} else {
 				return false;
