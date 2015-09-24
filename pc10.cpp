@@ -5,7 +5,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/9/2015
- * Date last modified: 9/10/2015
+ * Date last modified: 9/24/2015
  * 
  */
 #include <cassert>
@@ -72,7 +72,6 @@ int main (int argc, char* argv[]) {
 
 // CODE HERE -- FUNCTION DEFINITIONS
 float Converter::convertTemperature (float temp, char targetUnits) {
-	targetUnits = toupper(targetUnits);
 
 	switch (targetUnits) {
 		case 'I':
@@ -96,7 +95,6 @@ float Converter::fahrenheitToCelsius (float temp) {
 }
 
 float Converter::convertDistance (float distance, char targetUnits) {
-	targetUnits = toupper(targetUnits);
 	
 	switch (targetUnits) {
 		case 'I':
