@@ -1,17 +1,25 @@
 /*
  * Programming Challenge 14
- *
+ * This program creates a shopping list, with a maximum of 10 items, where items
+ * can be added or removed, and the item at a spesific place on the list can be
+ * checked. Exceptions will be thrown if the shopping list is full and another
+ * item is trying to be added, if the shopping list is checked and the shopping
+ * list is empty, if the index of the item on the shopping list being checked does
+ * not fall into the range 0-9, or if an item is trying to be removed with an
+ * index outside of the range 0-9.
  *
  * Katherine Jouzapaitis
  * Date created: 9/22/2015
- * Date last modified:
+ * Date last modified: 9/23/2015
  *
  * Resources:
- *
+ * http://www.cplusplus.com/reference/algorithm/rotate/
  */
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 class ShoppingList {
@@ -146,12 +154,10 @@ string ShoppingList::removeItem (unsigned int index) {
         throw ArrayException("INVALID ARRAY INDEX");
     } else {
         itemRemoved = items[index];
-        int capacity = maxItems;
-            for (int i = index; i < capacity; i++) {
-                items[i] = items[i + 1];
-                items[capacity - 1] = "";
-                capacity--;
-            }
+        
+        rotate(items + index, items + index + 1, items + maxItems);
+        items[maxItems - 1] = "";
+        
         itemCount--;
         return itemRemoved;
     }
