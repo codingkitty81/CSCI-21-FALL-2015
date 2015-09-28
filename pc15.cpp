@@ -1,13 +1,22 @@
 /*
  * Programming Challenge 15
- *
+ * This program creates a shopping list with a default length to hold up to 25 items.
+ * There is also an overloading option to create a list of a different length at
+ * the time of creation. Along with being able to add and remove items, items can
+ * be looked up by index. Once done with the list, the user can either deconstruct
+ * the list entirely, or reset the list to a new length and start again. Exceptions
+ * will be thrown if trying to add items to a full list, get an item from an empty
+ * list, get an item with an index not in the list's range, trying to create a list
+ * that holds less than one item, trying to remove an item from an empty list, and
+ * when trying to remove an item with an index outside of the list's range.
  *
  * Katherine Jouzapaitis
  * Date created: 9/23/2015
- * Date last modified:
+ * Date last modified: 9/28/2015
  *
  * Resources:
- *
+ * http://forums.codeguru.com/showthread.php?464643-Virtual-outside-class-declaration
+ * http://www.cplusplus.com/doc/tutorial/dynamic/
  */
 #include <cassert>
 #include <iostream>
@@ -126,11 +135,11 @@ int main () {
 
 // CODE HERE -- FUNCTION DEFINITIONS
 ShoppingList::ShoppingList() : maxItems(25), itemCount(0) {
-    string* items = new string[maxItems];
+    items = new string[maxItems];
 }
 
 ShoppingList::ShoppingList (unsigned int newMaxItems) : maxItems(newMaxItems), itemCount(0) {
-    string* items = new string[maxItems];
+    items = new string[maxItems];
 }
 
 ShoppingList::~ShoppingList () {
@@ -190,7 +199,16 @@ string ShoppingList::removeItem (unsigned int index) {
 void ShoppingList::reset (unsigned int newMaxItems) {
     delete [] items;
     
-    string* items = new string[newMaxItems];
+    if (newMaxItems < 1) {
+        items = new string[1];
+        maxItems = 1;
+        throw ArrayException("INVALID ARRAY SIZE");
+    } else {
+        items = new string[newMaxItems];
+    }
+    
+    maxItems = newMaxItems;
+    itemCount = 0;
 }
 /*
  * Unit testing functions. Do not alter.
