@@ -52,3 +52,6 @@ challenge_13: pc13.cpp
 challenge-14: pc14.cpp
 	g++ pc14.cpp -o challenge-14
 	
+challenge-15: pc15.cpp
+	g++ pc15.cpp -o challenge-15
+	
