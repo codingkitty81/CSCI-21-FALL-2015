@@ -198,6 +198,8 @@ string ShoppingList::removeItem (unsigned int index) {
 
 void ShoppingList::reset (unsigned int newMaxItems) {
     delete [] items;
+    itemCount = 0;
+    maxItems = newMaxItems;
     
     if (newMaxItems < 1) {
         items = new string[1];
@@ -206,9 +208,6 @@ void ShoppingList::reset (unsigned int newMaxItems) {
     } else {
         items = new string[newMaxItems];
     }
-    
-    maxItems = newMaxItems;
-    itemCount = 0;
 }
 /*
  * Unit testing functions. Do not alter.
