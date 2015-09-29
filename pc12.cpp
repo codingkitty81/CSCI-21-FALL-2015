@@ -8,7 +8,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/16/2015
- * Date last modified: 9/21/2015
+ * Date last modified: 9/29/2015
  *
  * Resources:
  * James Switzer - Senior Engineer, Shasta QA
@@ -81,13 +81,12 @@ int main (int argc, char* argv[]) {
 // CODE HERE -- FUNCTION DEFINITIONS
 
 int* makeDynoIntArray (unsigned int size) {
-	int* dynArray = new int[size];
-	return dynArray;
+	return (new int[size]);
 }
 
 void clearDynoIntArray (int*& theArray) {
 	delete [] theArray;
-	theArray = 0;
+	theArray = NULL;
 }
 
 int sum (int* theArray, unsigned int arraySize) {
