@@ -46,7 +46,7 @@ class ShoppingList {
          * Destructor.
          * Frees the memory associated with items.
          */
-        ~ShoppingList ();
+        virtual ~ShoppingList ();
 
         /*
          * Get the maximum number of items in this ShoppingList.
