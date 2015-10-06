@@ -12,7 +12,7 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/23/2015
- * Date last modified: 9/28/2015
+ * Date last modified: 10/6/2015
  *
  * Resources:
  * http://forums.codeguru.com/showthread.php?464643-Virtual-outside-class-declaration
@@ -144,6 +144,7 @@ ShoppingList::ShoppingList (unsigned int newMaxItems) : maxItems(newMaxItems), i
 
 ShoppingList::~ShoppingList () {
     delete [] items;
+    items = NULL;
 }
 
 unsigned int ShoppingList::getMaxItems () const {
