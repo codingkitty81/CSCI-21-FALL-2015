@@ -8,12 +8,13 @@
  *
  * Katherine Jouzapaitis
  * Date created: 9/21/2015
- * Date last modified: 9/22/2015
+ * Date last modified: 10/6/2015
  *
  * Resources:
  * http://www.cplusplus.com/doc/tutorial/pointers/
  * http://stackoverflow.com/questions/18090739/how-do-i-use-stringfind-to-find-a-word-in-file-using-c
  * http://www.cplusplus.com/forum/beginner/99785/
+ * http://en.cppreference.com/w/cpp/language/operator_member_access
  */
 #include <cassert>
 #include <cstdlib>
@@ -93,8 +94,10 @@ string* makeDynoString (string contents) {
 }
 
 void clearDynoString (string*& theString) {
-	delete theString;
-	theString = 0;
+	if (theString != NULL) {
+		delete theString;
+		theString = NULL;
+	}
 }
 
 unsigned int countChars (string* theString, unsigned int& alpha, unsigned int& num) {
