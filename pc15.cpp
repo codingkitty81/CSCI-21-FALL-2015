@@ -194,7 +194,7 @@ string ShoppingList::removeItem (unsigned int index) {
         rotate(items + index, items + index + 1, items + maxItems);
         items[maxItems - 1] = "";
         
-        itemCount--;
+        itemCount--; 
         return itemRemoved;
     }
 }
