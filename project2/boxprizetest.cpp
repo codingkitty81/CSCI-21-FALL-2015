@@ -12,17 +12,23 @@ using namespace std;
 template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
+void mainMenu ();
 void boxMenu ();
 void prizeMenu ();
 void pause ();
 
-int main () {
+int main (int argc, char* argv[]) {
 	
     // CODE HERE -- INTERACTIVE TEST
     //
     // add additional functions as needed to support interactive test
+	mainMenu ();
 	
-	CinReader reader;
+    return 0;
+}
+
+void mainMenu () {
+    CinReader reader;
     while (true) {
         cout << "MAIN MENU" << endl;
         cout << '\n';
@@ -48,7 +54,6 @@ int main () {
                 break;
         }
     }
-    return 0;
 }
 
 void boxMenu () {
@@ -77,7 +82,7 @@ void boxMenu () {
         case 0:
             system("clear");
             box1.~Box();
-            main ();
+            mainMenu ();
             break;
         case 1:
             system("clear");
@@ -194,7 +199,7 @@ void prizeMenu () {
         case 0:
             system("clear");
             prize1.~Prize();
-            main ();
+            mainMenu ();
             break;
         case 1:
             system("clear");
