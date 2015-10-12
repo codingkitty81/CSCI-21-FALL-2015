@@ -1,3 +1,14 @@
+/*
+ * prize.h for Programming Project 2
+ * This file contains definitions for the functions executed by prize.cpp.
+ * Working with prize.cpp this portion of the program is responsible for the
+ * construction, destruction, and manipulation of a prize object. The prizes
+ * name and value can be changed and two prizes can be compared for equality.
+ *
+ * Katherine Jouzapaitis
+ * Date created: 9/27/2015
+ * Date last modified: 10/12/2015
+ */
 #pragma once
 
 #include <string>
