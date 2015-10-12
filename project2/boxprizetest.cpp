@@ -1,21 +1,56 @@
+/*
+ * Programming Project 2
+ * This program is designed to give the user the choice to test two classes, box
+ * and prize, either through interactive or automated means. CinReader is
+ * utilized to handle the user's input and expections that might occur.
+ * 
+ * Katherine Jouzapaitis
+ * Date created: 9/27/2015
+ * Date last modified: 10/11/2015
+ */
 #include "box.h"
 #include "prize.h"
 #include "CinReader.h"
 #include <cstdlib>
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
+/**
+ * The main menu allowing the user to go to menus to run an interactive test
+ * for the prize and box classes, or run an automated unit test.
+ */
+void mainMenu ();
+
+/**
+ * The menu giving options to test various components of the box class. The
+ * user can add, view, and remove prizes. The box's color and number can be
+ * changed. The user can also view the capacity of the box and the number of
+ * prizes currently in the box.
+ */
+void boxMenu ();
+
+/**
+ * The menu giving options to test components of the prize class. The user can
+ * change the name and value of the prize. The user is also able to compare
+ * two prizes by entering in the names and values of the two prizes.
+ */
+void prizeMenu ();
+
+/**
+ * Pauses the program, requiring enter to be pressed to continue. This function
+ * clears the screen before the next function is executed.
+ */
+void pause ();
+
 /* for unit testing -- do not alter */
 template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
-void mainMenu ();
-void boxMenu ();
-void prizeMenu ();
-void pause ();
+
 
 int main (int argc, char* argv[]) {
 	
@@ -30,8 +65,7 @@ int main (int argc, char* argv[]) {
 void mainMenu () {
     CinReader reader;
     while (true) {
-        cout << "MAIN MENU" << endl;
-        cout << '\n';
+        cout << "MAIN MENU\n" << endl;
         cout << "[1] Box    -- interactive test" << endl;
         cout << "[2] Prize  -- interactive test" << endl;
         cout << "[3] Run official unit test" << endl;
@@ -65,8 +99,7 @@ void boxMenu () {
     
     theBoxMenu:
     system("clear");
-    cout << "BOX TEST" << endl;
-    cout << '\n';
+    cout << "BOX TEST\n" << endl;
     cout << "Box info -> " << box1.getBoxNumber() << ", " << box1.getBoxColor() << endl;
     cout << "[1] Add prize" << endl;
     cout << "[2] View prizes" << endl;
@@ -141,22 +174,18 @@ void boxMenu () {
         case 4:
             system("clear");
             cout << "Current number is: " << box1.getBoxNumber() << endl;
-            cout << '\n';
-            cout << "Enter in a new number: ";
+            cout << "\nEnter in a new number: ";
                 box1.setBoxNumber(reader.readInt());
-            cout << '\n';
-            cout << "New box number is: " << box1.getBoxNumber() << endl;
+            cout << "\nNew box number is: " << box1.getBoxNumber() << endl;
             pause ();
             goto theBoxMenu;
             break;
         case 5:
             system("clear");
             cout << "Current color is: " << box1.getBoxColor() << endl;
-            cout << '\n';
-            cout << "Enter in a new color: ";
+            cout << "\nEnter in a new color: ";
                 box1.setBoxColor(reader.readString());
-            cout << '\n';
-            cout << "New box color is: " << box1.getBoxColor() << endl;
+            cout << "\nNew box color is: " << box1.getBoxColor() << endl;
             pause ();
             goto theBoxMenu;
             break;
@@ -186,8 +215,7 @@ void prizeMenu () {
     
     thePrizeMenu:
     system("clear");
-    cout << "PRIZE TEST" << endl;
-    cout << '\n';
+    cout << "PRIZE TEST\n" << endl;
     cout << "Prize info -> " << prize1.getPrizeName() << ", $" << prize1.getPrizeValue() << endl;
     cout << "[1] Prize name" << endl;
     cout << "[2] Prize value" << endl;
@@ -204,14 +232,12 @@ void prizeMenu () {
         case 1:
             system("clear");
             cout << "Prize name: " << prize1.getPrizeName() << endl;
-            cout << '\n';
-            cout << "Update (y/n)? ";
+            cout << "\nUpdate (y/n)? ";
             
             if (reader.readChar("yn") == 'y') {
                 cout << "Enter new prize name: ";
                     prize1.setPrizeName(reader.readString());
-                cout << '\n';
-                cout << "Prize name updated." << endl;
+                cout << "\nPrize name updated." << endl;
             }
             
             pause ();
@@ -220,14 +246,12 @@ void prizeMenu () {
         case 2:
             system("clear");
             cout << "Prize value: " << prize1.getPrizeValue() << endl;
-            cout << '\n';
-            cout << "Update (y/n)? ";
+            cout << "\nUpdate (y/n)? ";
             
             if (reader.readChar("yn") == 'y') {
                 cout << "Enter new prize value: ";
                     prize1.setPrizeValue(reader.readInt());
-                cout << '\n';
-                cout << "Prize value updated." << endl;
+                cout << "\nPrize value updated." << endl;
             }
             
             pause ();
@@ -235,15 +259,13 @@ void prizeMenu () {
             break;
         case 3:
             system("clear");
-            cout << "First, set the Name and Value of the prizes being compared." << endl;
-            cout << '\n';
+            cout << "First, set the Name and Value of the prizes being compared.\n" << endl;
             cout << "Prize 1 ->" << endl;
             cout << "Prize name (current = NO NAME): ";
                 p1Name = reader.readString();
             cout << "Prize value (current = 0): ";
                 p1Value = reader.readInt();
-            cout << '\n';
-            cout << "Prize 2 ->" << endl;
+            cout << "\nPrize 2 ->" << endl;
             cout << "Prize name (current = NO NAME): ";
                 p2Name = reader.readString();
             cout << "Prize value (current = 0): ";
@@ -263,9 +285,8 @@ void prizeMenu () {
     }
 }
 
-void pause (){
-    cout << '\n';
-    cout << "Press enter to continue...";
+void pause () {
+    cout << "\nPress enter to continue...";
                 cin.get();
     system("clear");
 }
