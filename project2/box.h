@@ -1,3 +1,15 @@
+/*
+ * box.h for Programming Project 2
+ * This file contains the definitions for the functions executed by box.cpp.
+ * Working with box.cpp this portion of the program is responsible for the construction
+ * and destruction of a box object, as well allowing the manipulation of the 
+ * box's information and "placing, viewing, and removing" prizes within the box.
+ *
+ * Katherine Jouzapaitis
+ * Date created: 9/27/2015
+ * Date last modified: 10/12/2015
+ */
+
 #pragma once
 
 #include "prize.h"
