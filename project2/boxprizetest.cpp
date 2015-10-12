@@ -6,13 +6,13 @@
  * 
  * Katherine Jouzapaitis
  * Date created: 9/27/2015
- * Date last modified: 10/11/2015
+ * Date last modified: 10/12/2015
  */
 #include "box.h"
 #include "prize.h"
 #include "CinReader.h"
-#include <cstdlib>
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -97,110 +97,103 @@ void boxMenu () {
     unsigned int newValue = 0;
     unsigned int prizeRemove = 0;
     
-    theBoxMenu:
-    system("clear");
-    cout << "BOX TEST\n" << endl;
-    cout << "Box info -> " << box1.getBoxNumber() << ", " << box1.getBoxColor() << endl;
-    cout << "[1] Add prize" << endl;
-    cout << "[2] View prizes" << endl;
-    cout << "[3] Remove prize" << endl;
-    cout << "[4] Change Box number" << endl;
-    cout << "[5] Change Box color" << endl;
-    cout << "[6] View prize capacity" << endl;
-    cout << "[7] View prize count" << endl;
-    cout << "[0] Back to main menu" << endl;
-    cout << "Your choice: ";
-    
-    switch (reader.readInt(0,7)) {
-        case 0:
-            system("clear");
-            box1.~Box();
-            mainMenu ();
-            break;
-        case 1:
-            system("clear");
-            cout << "New prize name (current = NO NAME): ";
-                newName = reader.readString();
-            cout << "New prize value (current = 0): ";
-                newValue = reader.readInt();
-                
-            if (box1.getPrizeCount() < box1.getPrizeCapacity()) {
-                box1.addPrize(Prize (newName, newValue));
-            } else {
-                cout << "Your prize could not be added." << endl;
-            }
-            
-            pause ();
-            goto theBoxMenu;
-            break;
-        case 2:
-            system("clear");
-            
-            if (box1.getPrizeCount() == 0){
-                cout << '\n';
-            } else {
-               for (unsigned int i = 0; i < box1.getPrizeCount(); i++) {
-                   cout << i + 1 << ": " << box1.getPrize(i).getPrizeName() << endl;
-               } 
-            }
-            
-            pause ();
-            goto theBoxMenu;
-            break;
-        case 3:
-            system("clear");
-            
-            if (box1.getPrizeCount() == 0){
-                cout << '\n';
-            } else {
-               for (unsigned int i = 0; i < box1.getPrizeCount(); i++) {
-                   cout << i + 1 << ": " << box1.getPrize(i).getPrizeName() << endl;
-               } 
-            }
-            
-            cout << "Remove which prize (0 to cancel)? ";
-                prizeRemove = reader.readInt(0, box1.getPrizeCount());
-            
-                if (prizeRemove == 0) {
-                    system("clear");
-                    goto theBoxMenu;
-                } else {
-                    box1.removePrize(prizeRemove - 1);
-                    cout << "Prize number " << prizeRemove << " removed." << endl;
-                    pause ();
-                    goto theBoxMenu;
-                }
+    while (true) {
+        system("clear");
+        cout << "BOX TEST\n" << endl;
+        cout << "Box info -> " << box1.getBoxNumber() << ", " << box1.getBoxColor() << endl;
+        cout << "[1] Add prize" << endl;
+        cout << "[2] View prizes" << endl;
+        cout << "[3] Remove prize" << endl;
+        cout << "[4] Change Box number" << endl;
+        cout << "[5] Change Box color" << endl;
+        cout << "[6] View prize capacity" << endl;
+        cout << "[7] View prize count" << endl;
+        cout << "[0] Back to main menu" << endl;
+        cout << "Your choice: ";
+        
+        switch (reader.readInt(0,7)) {
+            case 0:
+                system("clear");
+                box1.~Box();
+                mainMenu ();
                 break;
-        case 4:
-            system("clear");
-            cout << "Current number is: " << box1.getBoxNumber() << endl;
-            cout << "\nEnter in a new number: ";
-                box1.setBoxNumber(reader.readInt());
-            cout << "\nNew box number is: " << box1.getBoxNumber() << endl;
-            pause ();
-            goto theBoxMenu;
-            break;
-        case 5:
-            system("clear");
-            cout << "Current color is: " << box1.getBoxColor() << endl;
-            cout << "\nEnter in a new color: ";
-                box1.setBoxColor(reader.readString());
-            cout << "\nNew box color is: " << box1.getBoxColor() << endl;
-            pause ();
-            goto theBoxMenu;
-            break;
-        case 6:
-            system("clear");
-            cout << "Current prize capacity: " << box1.getPrizeCapacity() << endl;
-            pause ();
-            goto theBoxMenu;
-            break;
-        case 7:
-            system("clear");
-            cout << "Current prize count: " << box1.getPrizeCount() << endl;
-            pause ();
-            goto theBoxMenu;
-            break;
+            case 1:
+                system("clear");
+                cout << "New prize name (current = NO NAME): ";
+                    newName = reader.readString();
+                cout << "New prize value (current = 0): ";
+                    newValue = reader.readInt();
+                    
+                if (box1.getPrizeCount() < box1.getPrizeCapacity()) {
+                    box1.addPrize(Prize (newName, newValue));
+                } else {
+                    cout << "Your prize could not be added." << endl;
+                }
+                
+                pause ();
+                break;
+            case 2:
+                system("clear");
+                
+                if (box1.getPrizeCount() == 0){
+                    cout << '\n';
+                } else {
+                   for (unsigned int i = 0; i < box1.getPrizeCount(); i++) {
+                       cout << i + 1 << ": " << box1.getPrize(i).getPrizeName() << endl;
+                   } 
+                }
+                
+                pause ();
+                break;
+            case 3:
+                system("clear");
+                
+                if (box1.getPrizeCount() == 0){
+                    cout << '\n';
+                } else {
+                   for (unsigned int i = 0; i < box1.getPrizeCount(); i++) {
+                       cout << i + 1 << ": " << box1.getPrize(i).getPrizeName() << endl;
+                   } 
+                }
+                
+                cout << "Remove which prize (0 to cancel)? ";
+                    prizeRemove = reader.readInt(0, box1.getPrizeCount());
+                
+                    if (prizeRemove == 0) {
+                        system("clear");
+                    } else {
+                        box1.removePrize(prizeRemove - 1);
+                        cout << "Prize number " << prizeRemove << " removed." << endl;
+                    }
+                    pause ();
+                    break;
+            case 4:
+                system("clear");
+                cout << "Current number is: " << box1.getBoxNumber() << endl;
+                cout << "\nEnter in a new number: ";
+                    box1.setBoxNumber(reader.readInt());
+                cout << "\nNew box number is: " << box1.getBoxNumber() << endl;
+                pause ();
+                break;
+            case 5:
+                system("clear");
+                cout << "Current color is: " << box1.getBoxColor() << endl;
+                cout << "\nEnter in a new color: ";
+                    box1.setBoxColor(reader.readString());
+                cout << "\nNew box color is: " << box1.getBoxColor() << endl;
+                pause ();
+                break;
+            case 6:
+                system("clear");
+                cout << "Current prize capacity: " << box1.getPrizeCapacity() << endl;
+                pause ();
+                break;
+            case 7:
+                system("clear");
+                cout << "Current prize count: " << box1.getPrizeCount() << endl;
+                pause ();
+                break;
+        }
     }
 }
 
@@ -213,75 +206,73 @@ void prizeMenu () {
     string p2Name;
     unsigned int p2Value = 0;
     
-    thePrizeMenu:
-    system("clear");
-    cout << "PRIZE TEST\n" << endl;
-    cout << "Prize info -> " << prize1.getPrizeName() << ", $" << prize1.getPrizeValue() << endl;
-    cout << "[1] Prize name" << endl;
-    cout << "[2] Prize value" << endl;
-    cout << "[3] Compare two prizes" << endl;
-    cout << "[0] Back to main menu" << endl;
-    cout << "Your choice: ";
-    
-    switch (reader.readInt(0,3)) {
-        case 0:
-            system("clear");
-            prize1.~Prize();
-            mainMenu ();
-            break;
-        case 1:
-            system("clear");
-            cout << "Prize name: " << prize1.getPrizeName() << endl;
-            cout << "\nUpdate (y/n)? ";
-            
-            if (reader.readChar("yn") == 'y') {
-                cout << "Enter new prize name: ";
-                    prize1.setPrizeName(reader.readString());
-                cout << "\nPrize name updated." << endl;
-            }
-            
-            pause ();
-            goto thePrizeMenu;
-            break;
-        case 2:
-            system("clear");
-            cout << "Prize value: " << prize1.getPrizeValue() << endl;
-            cout << "\nUpdate (y/n)? ";
-            
-            if (reader.readChar("yn") == 'y') {
-                cout << "Enter new prize value: ";
-                    prize1.setPrizeValue(reader.readInt());
-                cout << "\nPrize value updated." << endl;
-            }
-            
-            pause ();
-            goto thePrizeMenu;
-            break;
-        case 3:
-            system("clear");
-            cout << "First, set the Name and Value of the prizes being compared.\n" << endl;
-            cout << "Prize 1 ->" << endl;
-            cout << "Prize name (current = NO NAME): ";
-                p1Name = reader.readString();
-            cout << "Prize value (current = 0): ";
-                p1Value = reader.readInt();
-            cout << "\nPrize 2 ->" << endl;
-            cout << "Prize name (current = NO NAME): ";
-                p2Name = reader.readString();
-            cout << "Prize value (current = 0): ";
-                p2Value = reader.readInt();
-              
-            Prize prize1(p1Name, p1Value); 
-            Prize prize2(p2Name, p2Value);
-            if (prize1 == prize2) {
-                cout << "Yes. The two prizes are the same." << endl;
-            } else {
-                cout << "No. The two prizes are not the same." << endl;
-            }
+    while (true) {
+        system("clear");
+        cout << "PRIZE TEST\n" << endl;
+        cout << "Prize info -> " << prize1.getPrizeName() << ", $" << prize1.getPrizeValue() << endl;
+        cout << "[1] Prize name" << endl;
+        cout << "[2] Prize value" << endl;
+        cout << "[3] Compare two prizes" << endl;
+        cout << "[0] Back to main menu" << endl;
+        cout << "Your choice: ";
         
-            pause ();
-            goto thePrizeMenu;
-            break;
+        switch (reader.readInt(0,3)) {
+            case 0:
+                system("clear");
+                prize1.~Prize();
+                mainMenu ();
+                break;
+            case 1:
+                system("clear");
+                cout << "Prize name: " << prize1.getPrizeName() << endl;
+                cout << "\nUpdate (y/n)? ";
+                
+                if (reader.readChar("yn") == 'y') {
+                    cout << "\nEnter new prize name: ";
+                        prize1.setPrizeName(reader.readString());
+                    cout << "\nPrize name updated." << endl;
+                }
+                
+                pause ();
+                break;
+            case 2:
+                system("clear");
+                cout << "Prize value: " << prize1.getPrizeValue() << endl;
+                cout << "\nUpdate (y/n)? ";
+                
+                if (reader.readChar("yn") == 'y') {
+                    cout << "\nEnter new prize value: ";
+                        prize1.setPrizeValue(reader.readInt());
+                    cout << "\nPrize value updated." << endl;
+                }
+                
+                pause ();
+                break;
+            case 3:
+                system("clear");
+                cout << "First, set the Name and Value of the prizes being compared.\n" << endl;
+                cout << "Prize 1 ->" << endl;
+                cout << "Prize name (current = NO NAME): ";
+                    p1Name = reader.readString();
+                cout << "Prize value (current = 0): ";
+                    p1Value = reader.readInt();
+                cout << "\nPrize 2 ->" << endl;
+                cout << "Prize name (current = NO NAME): ";
+                    p2Name = reader.readString();
+                cout << "Prize value (current = 0): ";
+                    p2Value = reader.readInt();
+                  
+                Prize prize1(p1Name, p1Value); 
+                Prize prize2(p2Name, p2Value);
+                if (prize1 == prize2) {
+                    cout << "Yes. The two prizes are the same." << endl;
+                } else {
+                    cout << "No. The two prizes are not the same." << endl;
+                }
+            
+                pause ();
+                break;
+        }
     }
 }
 
