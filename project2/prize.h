@@ -1,6 +1,6 @@
 /*
  * prize.h for Programming Project 2
- * This file contains definitions for the functions executed by prize.cpp.
+ * This file contains declarations for the functions executed by prize.cpp.
  * Working with prize.cpp this portion of the program is responsible for the
  * construction, destruction, and manipulation of a prize object. The prizes
  * name and value can be changed and two prizes can be compared for equality.
