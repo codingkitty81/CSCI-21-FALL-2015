@@ -1,6 +1,6 @@
 /*
  * boxprizetest.h for Programming Project 2
- * This file contains the definitions for the functions utilized in
+ * This file contains the declarations for the functions utilized in
  * boxprizetest.cpp for the interactive portion of testing the prize and
  * box classes.
  *
