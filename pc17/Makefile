@@ -7,7 +7,7 @@
 # Targets for Programming Challenge 17
 # Date completed: 10/13/2015
 
-pc17: SLNode.o
+challenge-17: SLNode.o
 	g++ $(FLAGS) -o pc17 SLNode.o
 	
 SLNode.o: SLNode.cpp
@@ -17,4 +17,4 @@ clean:
 	rm *.o
 	
 cleanall:
-	rm *.o pc17
+	rm *.o challenge17
