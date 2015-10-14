@@ -17,4 +17,4 @@ clean:
 	rm *.o
 	
 cleanall:
-	rm *.o challenge17
+	rm *.o challenge-17
