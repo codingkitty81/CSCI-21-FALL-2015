@@ -7,23 +7,25 @@
 # Targets for Programming Project #2
 # Date completed: 10/9/2015
 
+FLAGS = -Wall -Wextra -pedantic
+
 project2: boxprizetest.o prize.o box.o CinReader.o
-	g++ -o project2 boxprizetest.o prize.o box.o CinReader.o
+	g++ $(FLAGS) -o project2 boxprizetest.o prize.o box.o CinReader.o
 	
-boxtest: boxprizetest.cpp
-	g++ -c boxprizetest.cpp
+boxprizetest.o: boxprizetest.cpp
+	g++ $(FLAGS) -c boxprizetest.cpp
 	
-prize: prize.cpp
-	g++ -c prize.cpp
+prize.o: prize.cpp
+	g++ $(FLAGS) -c prize.cpp
 	
-box: box.cpp
-	g++ -c box.cpp
+box.o: box.cpp
+	g++ $(FLAGS) -c box.cpp
 	
-CinReader: CinReader.cpp
-	g++ -c CinReader.cpp
+CinReader.o: CinReader.cpp
+	g++ $(FLAGS) -c CinReader.cpp
 	
 clean: 
-	rm boxprizetest.o prize.o box.o CinReader.o
+	rm -f *.o
 	
-cleanall:  
-	rm boxprizetest.o prize.o box.o CinReader.o project2
+cleanall: clean
+	rm -f project2
