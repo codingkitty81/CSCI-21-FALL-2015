@@ -68,7 +68,7 @@ Prize& Box::getPrize (unsigned int index) {
 }
 
 Prize Box::removePrize (unsigned int index) {
-    if (prizeCount == 0 || index >= prizeCount || index < 0) {
+    if (prizeCount == 0 || index >= prizeCount) {
         return scratch;
     } else {
         Prize tempPrize;
