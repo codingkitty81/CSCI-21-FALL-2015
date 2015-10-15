@@ -7,6 +7,8 @@
 # Targets for Programming Challenge 17
 # Date completed: 10/13/2015
 
+FLAGS = -Wall -Wextra -pedantic
+
 challenge-17: SLNode.o
 	g++ $(FLAGS) -o challenge-17 SLNode.o
 	
@@ -14,7 +16,7 @@ SLNode.o: SLNode.cpp
 	g++ $(FLAGS) -c SLNode.cpp
 	
 clean:
-	rm *.o
+	rm -f *.o
 	
-cleanall:
-	rm *.o challenge-17
+cleanall: clean
+	rm -f challenge-17
