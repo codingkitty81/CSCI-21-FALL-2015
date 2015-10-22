@@ -16,13 +16,6 @@
 
 #include "SList.h"
 
-#include <cassert>
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <sstream>
-using namespace std;
-
 /* for unit testing -- do not alter */
 template <typename X, typename A>
 void btassert(A assertion);
