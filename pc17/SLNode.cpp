@@ -30,7 +30,9 @@ SLNode::SLNode () : nextNode(NULL), contents(0) {}
 
 SLNode::SLNode (int newContents) : nextNode(NULL), contents(newContents) {}
 
-SLNode::~SLNode () {}
+SLNode::~SLNode () {
+	nextNode = NULL;
+}
 
 void SLNode::setContents (int newContents) {
 	contents = newContents;
