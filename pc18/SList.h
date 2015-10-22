@@ -13,8 +13,10 @@
 
 #include <cassert>
 #include <cstdlib>
+#include <iostream>
 #include <string>
-using std::string;
+#include <sstream>
+using namespace std;
 
 class SList {
     public:
