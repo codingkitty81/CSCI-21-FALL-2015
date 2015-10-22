@@ -9,14 +9,17 @@
 
 FLAGS = -Wall -Wextra -pedantic
 
-challenge-18: SList.o SLNode.o
-	g++ $(FLAGS) -o challenge-18 SList.o SLNode.o
+challenge-18: SList.o SLNode.o pc18-test.o
+	g++ $(FLAGS) -o challenge-18 SList.o SLNode.o pc18-test.o
 	
 SList.o: SList.cpp
 	g++ $(FLAGS) -c SList.cpp
 	
 SLNode.o: SLNode.cpp
 	g++ $(FLAGS) -c SLNode.cpp
+	
+pc18-test.o: pc18-test.cpp
+	g++ $(FLAGS) -c pc18-test.cpp
 	
 clean:
 	rm -f *.o
