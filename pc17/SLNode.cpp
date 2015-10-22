@@ -10,11 +10,6 @@
 
 #include "SLNode.h"
 
-#include <cassert>
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-
 /* for unit testing -- do not alter */
 template <typename X, typename A>
 void btassert(A assertion);
