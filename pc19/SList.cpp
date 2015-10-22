@@ -5,6 +5,7 @@
  * by checking the size of the list and testing the output from the toString() 
  * function.
  *
+ * Katherine Jouzpaitis
  * Date created: 10/20/2015
  * Date last modified: 10/21/2015
  *
