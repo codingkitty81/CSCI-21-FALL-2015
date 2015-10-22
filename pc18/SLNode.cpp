@@ -1,10 +1,5 @@
 #include "SLNode.h"
 
-#include <cassert>
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-
 SLNode::SLNode () : nextNode(NULL), contents(0) {}
 
 SLNode::SLNode (int newContents) : nextNode(NULL), contents(newContents) {}
