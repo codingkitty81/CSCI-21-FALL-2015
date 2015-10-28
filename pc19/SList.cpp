@@ -81,7 +81,7 @@ string SList::toString () const {
 	current = head;
 	
 	if (head == NULL){
-		cout << "" << endl;
+		listStream << "" << ",";
 	} else {
 		while (current != NULL) {
 			listStream << current->getContents() << ",";
