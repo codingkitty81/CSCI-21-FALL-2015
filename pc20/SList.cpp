@@ -58,7 +58,7 @@ void SList::removeTail () {
 		size--;
 	}
 }
-//http://www.c4learn.com/data-structure/insert-node-at-middle-position-singly-linked-list/
+
 void SList::insert (int contents) {
 	if (head == NULL || head->getContents() > contents) {
 		insertHead(contents);
