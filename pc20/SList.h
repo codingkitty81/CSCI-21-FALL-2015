@@ -8,7 +8,10 @@
  *
  * Katherine Jouzapaitis
  * Date created: 10/22/2015
- * Date last modified: 10/22/2015
+ * Date last modified: 10/29/2015
+ *
+ * Resources:
+ * http://www.c4learn.com/data-structure/insert-node-at-middle-position-singly-linked-list/
  */
  
 #pragma once
