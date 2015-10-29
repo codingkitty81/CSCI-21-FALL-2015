@@ -3,9 +3,7 @@
  * 
  * Katherine Jouzapaitis
  * Date created: 10/22/2015
- * Date last modified:
- *
- * Resources:
+ * Date last modified: 10/22/2015
  */
 
 #include "SList.h"
