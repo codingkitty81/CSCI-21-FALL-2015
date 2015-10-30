@@ -86,13 +86,12 @@ void SList::insert (int contents) {
 }
 
 bool SList::removeFirst (int contents) {
-	SLNode* compareNode = new SLNode(contents);
 	SLNode* current = head;
 	SLNode* previous = NULL;
 	bool found = false;
 	
 	while (current != NULL) {
-		if (current->getContents() == compareNode->getContents()) {
+		if (current->getContents() == contents) {
 			found = true;
 			break;
 		}
