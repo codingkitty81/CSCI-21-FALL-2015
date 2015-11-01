@@ -29,7 +29,7 @@ class Box {
          */
         Box (T newContents) {
             contents = newContents;
-        }
+        };
         
         /**
          * Gets the contents of the box.
@@ -37,7 +37,7 @@ class Box {
          */
         T& getContents () {
             return contents;
-        }
+        };
         
         /**
          * Sets the contents of the box.
@@ -46,7 +46,7 @@ class Box {
          */
         void setContents (T newContents) {
             contents = newContents;
-        }
+        };
         
         /**
          * Friend ostream operator to handle the output of the contents of the box.
@@ -57,7 +57,7 @@ class Box {
         friend ostream& operator<< (ostream& outs, const Box& newBox) {
             outs << newBox.contents;
             return outs;
-        }
+        };
         
     private:
         T contents;
