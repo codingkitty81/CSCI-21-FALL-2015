@@ -10,4 +10,10 @@
  *http://stackoverflow.com/questions/7868936/read-file-line-by-line
  */
 
+/**
+ * Processes the file containing input.
+ * @param fileName a string containing the name of the file being
+ * read into the program.
+ */
+
 void fileProcess(string fileName);
