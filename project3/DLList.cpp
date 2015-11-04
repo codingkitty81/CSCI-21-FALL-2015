@@ -1,13 +1,5 @@
 #include "DLList.h"
 
-struct nodeException {
-	nodeException (string newMessage="error")
-	: message(newMessage) {
-	}
-	
-	string message;
-};
-
 DLList::DLList () : nodeCount(0), head(NULL), tail(NULL) {}
 
 DLList::~DLList () {
@@ -25,11 +17,11 @@ void DLList::pushFront (int newContents) {
         head = tempNode;
         tail = tempNode;
     } else {
-        tail = head;
-        tempNode->setNext(tail);
+        DLNode* tempNode2 = head;
+        tempNode->setNext(tempNode2);
         tempNode->setPrevious(NULL);
         head = tempNode;
-        tail->setPrevious(tempNode);
+        tempNode2->setPrevious(tempNode);
     }
     
     nodeCount++;
@@ -51,60 +43,53 @@ void DLList::pushBack (int newContents) {
         
         tail->setNext(tempNode);
         tempNode->setPrevious(tail);
+        tail = tempNode;
     }
     
     nodeCount++;
 }
 
 void DLList::insert (int newContents) {
-    if (head == NULL || head->getContents() > newContents) {
-        pushFront(newContents);
-    } else if (head->getNext() == NULL && head->getContents() < newContents) {
-        pushBack(newContents);
-    } else {
         DLNode* previousNode = head;
         DLNode* nextUp = head->getNext();
         
-        while (nextUp->getContents() < newContents && nextUp->getNext() != NULL) {
-            previousNode = nextUp;
-            nextUp = nextUp->getNext();
-        }
+    while (nextUp->getContents() < newContents && nextUp->getNext() != NULL) {
+        previousNode = nextUp;
+        nextUp = nextUp->getNext();
+    }
         
-        if (nextUp->getContents() >= newContents) {
-            nextUp->setPrevious(nextUp);
-            previousNode->setNext(previousNode);
-            DLNode* newNode = new DLNode(newContents);
-            previousNode->setNext(newNode);
-            newNode->setPrevious(previousNode);
-            newNode->setNext(nextUp);
-            nextUp->setPrevious(newNode);
-            nodeCount++;
-        } else {
-            pushBack(newContents);
-        }
+    if (nextUp->getContents() >= newContents) {
+        nextUp->setPrevious(nextUp);
+        previousNode->setNext(previousNode);
+        DLNode* newNode = new DLNode(newContents);
+        previousNode->setNext(newNode);
+        newNode->setPrevious(previousNode);
+        newNode->setNext(nextUp);
+        nextUp->setPrevious(newNode);
+        nodeCount++;
     }
 }
 
 int DLList::getFront () const {
     if (head == NULL) {
-        throw nodeException("LIST EMPTY");
-    } else {
-        return head->getContents();
+        throw string ("LIST EMPTY");
     }
+    
+    return head->getContents();
 }
 
 int DLList::getBack () const {
     if (head == NULL) {
-        throw nodeException("LIST EMPTY");
-    } else {
-        DLNode* backNode = head;
-        
-        while (backNode->getNext() != NULL) {
-            backNode = backNode->getNext();
-        }
-        
-        return backNode->getContents();
+        throw string ("LIST EMPTY");
     }
+    
+    DLNode* backNode = head;
+        
+    while (backNode->getNext() != NULL) {
+        backNode = backNode->getNext();
+    }
+        
+    return backNode->getContents();
 }
 //http://code.runnable.com/Us53wIV1TEVWAAHd/how-to-search-a-node-in-a-linked-list-for-c%2B%2B
 bool DLList::get (int target) {
@@ -125,7 +110,9 @@ bool DLList::get (int target) {
 void DLList::popFront () {
     DLNode* currentNode;
     
-    if (head != NULL) {
+    if (head == NULL) {
+        throw string ("LIST EMPTY");
+    } else {
         currentNode = head;
         head = head->getNext();
         head->setPrevious(NULL);
@@ -136,7 +123,9 @@ void DLList::popFront () {
 }
 
 void DLList::popBack () {
-    if (head != NULL) {
+    if (head == NULL) {
+        throw string ("LIST EMPTY");
+    } else {
         if (head->getNext() == NULL) {
             popFront();
         } else {
@@ -150,6 +139,7 @@ void DLList::popBack () {
             previousNode->setNext(NULL);
             tail->setPrevious(NULL);
             delete tail;
+            tail = previousNode;
         }
         
         nodeCount--;
@@ -184,9 +174,8 @@ bool DLList::removeFirst (int target) {
             previousNode->setNext(nextUp);
             nextUp->setPrevious(previousNode);
             delete currentNode;
+            nodeCount--;
         }
-            
-        nodeCount--;
     }
     
     return found;
@@ -214,33 +203,24 @@ void DLList::clear () {
         head = head->getNext();
         delete toDelete;
         toDelete = head;
-        nodeCount--;
     }
     
+    nodeCount = 0;
     head = tail = NULL;
 }
 
 ostream& operator<< (ostream& out, const DLList& src) {
     stringstream listOut;
-    listOut << src << ",";
+    DLNode* tempNode = src.head;
     
+    if (tempNode == NULL) {
+        listOut << "LIST EMPTY" << ",";
+    } else {
+        while (tempNode != NULL) {
+            listOut << tempNode->getContents() << ",";
+            tempNode = tempNode->getNext();
+        }
+    } 
     out << listOut.str().substr(0,listOut.str().length() - 1);
     return out;
-}
-  
-string DLList::toString () const {
-	stringstream listStream;
-	DLNode* current;
-	current = head;
-	
-	if (head == NULL){
-		listStream << "" << ",";
-	} else {
-		while (current != NULL) {
-			listStream << current->getContents() << ",";
-			current = current->getNext();
-		}
-	}
-	
-	return(listStream.str().substr(0,listStream.str().length() - 1));
 }
