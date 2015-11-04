@@ -6,7 +6,7 @@ DLList::~DLList () {
     clear ();
 }
 
-unsigned int DLList::getSize () {
+unsigned int DLList::getSize () const {
     return nodeCount;
 }
 //http://www.dailyfreecode.com/Code/double-linked-list-cpp-3422.aspx
