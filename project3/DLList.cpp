@@ -83,13 +83,7 @@ int DLList::getBack () const {
         throw string ("LIST EMPTY");
     }
     
-    DLNode* backNode = head;
-        
-    while (backNode->getNext() != NULL) {
-        backNode = backNode->getNext();
-    }
-        
-    return backNode->getContents();
+    return tail->getContents();
 }
 //http://code.runnable.com/Us53wIV1TEVWAAHd/how-to-search-a-node-in-a-linked-list-for-c%2B%2B
 bool DLList::get (int target) {
