@@ -1,3 +1,13 @@
+/*
+ * Programming Project #3
+ * This program allows for the creation, deletion, manipulation, and displaying
+ * of a doubly linked list of integers through the use of a input file.
+ *
+ * Katherine Jouzapaitis
+ * Date created: 10/29/2015
+ * Date last modified: 11/4/2015
+ */
+
 #include "DLList.h"
 #include "DLNode.h"
 #include "project3-test.h"
