@@ -1,6 +1,6 @@
 /*
  * project3-test.h file for Programming Project #3
- * This file contains the function definitions for project3-test.cpp.
+ * This file contains the function declarations for project3-test.cpp.
  *
  * Katherine Jouzapaitis
  * Date created: 10/3/2015
