@@ -50,23 +50,29 @@ void DLList::pushBack (int newContents) {
 }
 
 void DLList::insert (int newContents) {
+    if (head == NULL || head->getContents() > newContents) {
+        pushFront(newContents);
+    } else if (head->getNext() == NULL && head->getContents() <= newContents) {
+        pushBack(newContents);
+    } else {
         DLNode* previousNode = head;
         DLNode* nextUp = head->getNext();
         
-    while (nextUp->getContents() < newContents && nextUp->getNext() != NULL) {
-        previousNode = nextUp;
-        nextUp = nextUp->getNext();
-    }
+        while (nextUp->getContents() < newContents && nextUp->getNext() != NULL) {
+            previousNode = nextUp;
+            nextUp = nextUp->getNext();
+        }
         
-    if (nextUp->getContents() >= newContents) {
-        nextUp->setPrevious(nextUp);
-        previousNode->setNext(previousNode);
-        DLNode* newNode = new DLNode(newContents);
-        previousNode->setNext(newNode);
-        newNode->setPrevious(previousNode);
-        newNode->setNext(nextUp);
-        nextUp->setPrevious(newNode);
-        nodeCount++;
+        if (nextUp->getContents() >= newContents) {
+            nextUp->setPrevious(nextUp);
+            previousNode->setNext(previousNode);
+            DLNode* newNode = new DLNode(newContents);
+            previousNode->setNext(newNode);
+            newNode->setPrevious(previousNode);
+            newNode->setNext(nextUp);
+            nextUp->setPrevious(newNode);
+            nodeCount++;
+        }
     }
 }
 
