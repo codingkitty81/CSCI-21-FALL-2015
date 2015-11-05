@@ -1,6 +1,6 @@
 /*
  * DLNode.h file for Programming Project #3
- * This file contains the definitions for the functions utilized by DLNode.cpp.
+ * This file contains the declarations for the functions utilized by DLNode.cpp.
  *
  * Katherine Jouzapaitis
  * Date Created: 10/29/2015
