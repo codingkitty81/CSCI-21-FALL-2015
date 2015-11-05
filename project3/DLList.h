@@ -1,14 +1,18 @@
 /*
+ * DLList.h file for Programming Project #3
+ * This file contains the declarations of the functions utilized by DLList.cpp.
  *
+ * Katherine Jouzapaitis
  * Date created: 10/29/2015
- *
+ * Date last modified: 11/4/2015
+ * 
+ * Resources:
+ * http://code.runnable.com/Us53wIV1TEVWAAHd/how-to-search-a-node-in-a-linked-list-for-c%2B%2B
+ * http://www.dailyfreecode.com/Code/double-linked-list-cpp-3422.aspx
  */
  
 #pragma once
 
-
-//http://code.runnable.com/Us53wIV1TEVWAAHd/how-to-search-a-node-in-a-linked-list-for-c%2B%2B
-//http://www.dailyfreecode.com/Code/double-linked-list-cpp-3422.aspx
 #include "DLNode.h"
 #include <cassert>
 #include <cstdlib>
