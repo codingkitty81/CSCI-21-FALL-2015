@@ -18,7 +18,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
+template <typename stuff>
 class Box {
     public:
         
@@ -27,7 +27,7 @@ class Box {
          * @param newContents of whatever type is defined by the template
          * containing the contents to be placed in the box.
          */
-        Box (T newContents) {
+        Box (stuff newContents) {
             contents = newContents;
         };
         
@@ -35,7 +35,7 @@ class Box {
          * Gets the contents of the box.
          * @return whatever type defined by the template, the contents of the box.
          */
-        T& getContents () {
+        stuff& getContents () {
             return contents;
         };
         
@@ -44,7 +44,7 @@ class Box {
          * @param newContents of whatever type is defined by the template
          * containing the new contents for the box.
          */
-        void setContents (T newContents) {
+        void setContents (stuff newContents) {
             contents = newContents;
         };
         
@@ -60,6 +60,6 @@ class Box {
         };
         
     private:
-        T contents;
+        stuff contents;
 };
 
