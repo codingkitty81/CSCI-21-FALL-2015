@@ -73,7 +73,7 @@ void DLList::insert (int newContents) {
             nextUp->setPrevious(newNode);
             nodeCount++;
         } else {
-            pushback(contents);
+            pushBack(newContents);
         }
     }
 }
