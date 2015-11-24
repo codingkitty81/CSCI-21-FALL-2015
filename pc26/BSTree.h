@@ -90,6 +90,7 @@ class BSTree {
      * to the largest value of the lest subtree.
      * @param node a reference to the address of the leftChild of the targeted
      * node to be removed.
+     */
     void removeMax (int& contents, BSTNode*& node);
     
     /**
