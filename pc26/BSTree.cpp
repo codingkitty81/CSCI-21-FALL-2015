@@ -25,7 +25,7 @@ unsigned int BSTree::getSize () {
 void BSTree::inOrder (ostream& out) {
     inOrder (root, out);
 }
-//http://www.cplusplus.com/forum/general/1551/
+
 bool BSTree::insert (int contents, BSTNode*& root) {
 
     bool canInsert;
@@ -63,7 +63,7 @@ bool BSTree::remove (int contents, BSTNode*& parent) {
             temp = NULL;
             size--;
         } else {
-            removeMax(contents, parent);
+            removeMax(contents, parent->getLeftChild());
             parent->setContents(contents);
         }
         
@@ -83,7 +83,7 @@ void BSTree::removeMax (int& contents, BSTNode*& parent) {
         removeMax(contents, parent->getRightChild());
     }
 }
-//http://www.cplusplus.com/forum/general/3509/
+
 void BSTree::clear (BSTNode*& node) {
     if (node == NULL) {
         return;
