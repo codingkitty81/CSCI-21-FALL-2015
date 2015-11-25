@@ -79,7 +79,7 @@ void BSTree::removeMax (int& contents, BSTNode*& parent) {
         temp = NULL;
         size--;
     } else {
-        removeMax(contents, parent->getRightChild());
+        removeMax(parent->getContents(), parent->getRightChild());
     }
 }
 
