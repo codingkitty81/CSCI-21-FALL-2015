@@ -10,8 +10,6 @@
  * Date last modified: 12/3/2015
  */
 
-// Date created: 11/24/2015
-
 #pragma once
 
 #include <cassert>
