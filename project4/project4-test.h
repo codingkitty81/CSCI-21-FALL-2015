@@ -10,6 +10,7 @@
  * Date created: 11/24/2015
  * Date last modified: 12/3/2015
  */
+#pragma once
 
 #include <fstream>
 #include <sstream>
